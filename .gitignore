@@ -5,3 +5,4 @@ cypress/videos/
 mochawesome-report/
 .env
 cypress.env.json
+cypress/reports/

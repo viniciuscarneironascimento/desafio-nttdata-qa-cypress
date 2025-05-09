@@ -4,7 +4,9 @@
   "description": "Desafio de Automação com Cypress NTT DATA",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:front": "cypress run --spec \"cypress/e2e/desafioFront.cy.js\"",
+    "test:api": "cypress run --spec \"cypress/e2e/desafioApi.cy.js\""
   },
   "repository": {
     "type": "git",
