@@ -1,3 +1,23 @@
+// Comando personalizado para efetuar o login
+Cypress.Commands.add('login', (email, senha) => {
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="senha"]').type(senha, { log: false });
+  cy.get('[data-testid="entrar"]').click();
+})
+
+// Comando personalizado para realizar cadastro de novo usuario
+Cypress.Commands.add('cadastrarUsuario', (nome, email, senha) => {
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha, { log: false });
+  cy.get('[data-testid="cadastrar"]').click();
+})
+
+// Comando personalizado para realizar logout
+Cypress.Commands.add('logout', () => {
+  cy.get('[data-testid="logout"]').click();
+})
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
