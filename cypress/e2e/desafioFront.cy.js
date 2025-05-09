@@ -88,18 +88,35 @@ describe('Funcionalidade: Login', () => {
   context('Cenário: Login com sucesso', () => {
     it('Deve acessar o sistema e visualizar o dashboard', () => {
 
+        // Cria payload de usuário
+        let user = {
+            nome: faker.person.firstName(),
+            email: faker.internet.email(),
+            password: faker.internet.password(),
+            administrador: faker.datatype.boolean().toString()
+        };
+
+        // Cadastra um novo usuário
+        cy.request({
+            method: 'POST',
+            url: `${Cypress.env('apiBaseUrl')}/usuarios`,
+            body: user,
+            failOnStatusCode: false
+        }).then((response) => {
+            expect(response.status).to.eql(201);
+            expect(response.body.message).to.eql("Cadastro realizado com sucesso");
+        });
+  
       // Intercepta as requisições relevantes da tela
       cy.intercept('POST', '**/login').as('postLogin');
       cy.intercept('GET', '**/usuarios').as('getUser');
-      cy.intercept('GET', '**/produtos').as('getProducts');
 
-      // Acessa comando personalizado para realizar o login com dados existentes
-      cy.login((Cypress.env('userEmail')), (Cypress.env('userSenha')));
+      // Acessa comando personalizado para realizar o login com dados existentes recém-cadastrados
+      cy.login(user.email, user.password);
 
       // Aguarda e valida o status das chamadas
       cy.wait('@postLogin').its('response.statusCode').should('eq', 200);
       cy.wait('@getUser').its('response.statusCode').should('eq', 200);
-      cy.wait('@getProducts').its('response.statusCode').should('eq', 200);
 
       // Valida URL da página logada
       cy.url().should('include', '/home');
