@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/viniciuscarneironascimento/desafio-nttdata-qa-cypress#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.7.0",
     "cypress": "^14.3.3"
   }
 }
