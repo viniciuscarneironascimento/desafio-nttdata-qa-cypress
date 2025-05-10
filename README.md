@@ -39,8 +39,45 @@ Utilizando o framework **Cypress** e a linguagem **JavaScript**, desenvolva:
 
 ---
 
+# 🧪 Como executar os testes automatizados deste projeto (Cypress)
 
-## 📝 Passo a passo da execução
+## 🔧 1. Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
+- Visual Studio Code (VSCode) ou outro editor de código de sua preferência
+- Terminal Bash, PowerShell ou similar
+- [Node.js](https://nodejs.org/) (versão LTS recomendada)
+- [Git](https://git-scm.com/)
+
+## 📥 2. Clonar o repositório
+
+Clone este repositório para sua máquina local com o comando:
+- **git clone https://github.com/viniciuscarneironascimento/desafio-nttdata-qa-cypress**
+
+Acesse a pasta do projeto com comando:
+- **cd desafio-nttdata-qa-cypress**
+
+Os testes estão na pasta:
+- **cypress/e2e/**
+
+## 📦 3. Instalar as dependências
+Após acessar a pasta do projeto, instale as dependências com o comando:
+- **npm install**
+
+Isso irá instalar o Cypress e todas as bibliotecas necessárias para executar os testes.
+
+## ▶️ 4. Executar os testes
+4.1 Modo headless (execução automática de todos os testes via terminal sem abrir o navegador):
+- **npx cypress run**
+
+4.2 Modo interativo (com interface gráfica, executa o Cypress com interface gráfica):
+- **npx cypress open**
+
+
+
+---
+
+# 📝 Como eu realizei este desafio
 
 1. **Leitura e entendimento das regras de negócio do desafio**  
    ⏱️ Início: 09:25 - 08/05/2025
